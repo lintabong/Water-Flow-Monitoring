@@ -1,27 +1,25 @@
 #include <ESP8266WiFi.h>
 #include <FirebaseArduino.h>
 
-// Set these to run example.
 #define FIREBASE_HOST "*************************.firebaseio.com"
 #define FIREBASE_AUTH "*************************4ajEMXES96PFlrM"
 #define WIFI_SSID "default"
 #define WIFI_PASSWORD "wifipass"
 
-const int SAMPLE_TIME = 1000;
+const int     SAMPLE_TIME = 1000;
 unsigned long millisCurrent;
 unsigned long millisLast = 0;
 unsigned long millisElapsed = 0;
-int count1 = 0;
-int count2 = 0;
-int count3 = 0;
-double flow1;
-double flow2;
-double flow3;
+int           count1 = 0;
+int           count2 = 0;
+int           count3 = 0;
+double        flow1;
+double        flow2;
+double        flow3;
 
 void setup() {
   Serial.begin(9600);
 
-  // connect to wifi.
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   Serial.print("connecting");
   while (WiFi.status() != WL_CONNECTED) {
